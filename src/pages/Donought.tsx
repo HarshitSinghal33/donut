@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
 
 function DonutModel() {
-  const { scene } = useGLTF(import.meta.env.BASE_URL + 'donut/donut.glb');
+  const { scene } = useGLTF(import.meta.env.BASE_URL + 'donut.glb');
   return <primitive object={scene} scale={1} />
 }
 
