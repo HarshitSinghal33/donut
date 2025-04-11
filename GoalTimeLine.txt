@@ -1,0 +1,67 @@
+// import { useRef, useEffect } from "react";
+
+// const goals = [
+//   { id: 1, title: "Learn React", description: "Build your first component" },
+//   { id: 2, title: "Build UI", description: "Add timelines and visuals" },
+//   { id: 3, title: "Connect Backend", description: "Save goal progress" },
+//   { id: 4, title: "Deploy App", description: "Go live and test" },
+// ];
+
+// const colors = ["#00aabb", "#ffaa00", "#44cc77", "#bb66ff"];
+
+// const GoalCanvasTimeline = () => {
+//   const canvasRef = useRef(null);
+
+//   useEffect(() => {
+//     const canvas = canvasRef.current;
+//     const ctx = canvas.getContext("2d");
+//     const width = canvas.width = 1200;
+//     const height = canvas.height = 300;
+
+//     ctx.clearRect(0, 0, width, height);
+
+//     // Calculate equally spaced points
+//     const points = goals.map((_, i) => ({
+//       x: (i + 1) * (width / (goals.length + 1)),
+//       y: 150 + Math.sin(i) * 80, // wave pattern
+//     }));
+
+//     // Draw segments with different colors
+//     for (let i = 0; i < points.length - 1; i++) {
+//       ctx.beginPath();
+//       ctx.moveTo(points[i].x, points[i].y);
+
+//       // Curve control points for smooth wave
+//       const cp1x = (points[i].x + points[i + 1].x) / 2;
+//       const cp1y = points[i].y;
+//       const cp2x = (points[i].x + points[i + 1].x) / 2;
+//       const cp2y = points[i + 1].y;
+
+//       ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, points[i + 1].x, points[i + 1].y);
+//       ctx.strokeStyle = colors[i % colors.length];
+//       ctx.lineWidth = 6;
+//       ctx.stroke();
+//     }
+
+//     // Draw milestone circles and labels
+//     ctx.font = "14px sans-serif";
+//     ctx.textAlign = "center";
+//     goals.forEach((goal, i) => {
+//       const pt = points[i];
+//       ctx.beginPath();
+//       ctx.arc(pt.x, pt.y, 8, 0, 2 * Math.PI);
+//       ctx.fillStyle = colors[i % colors.length];
+//       ctx.fill();
+
+//       // Title
+//       ctx.fillStyle = "#333";
+//       ctx.fillText(goal.title, pt.x, pt.y - 20);
+//       ctx.fillStyle = "#666";
+//       ctx.fillText(goal.description, pt.x, pt.y + 25);
+//     });
+//   }, []);
+
+//   return <canvas ref={canvasRef} style={{ width: '100%', height: 300 }} />;
+// };
+
+// export default GoalCanvasTimeline;
